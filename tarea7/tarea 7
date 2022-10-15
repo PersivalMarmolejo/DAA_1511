@@ -1,0 +1,56 @@
+#include<iostream>
+#include <conio.h>
+#include<string.h>
+
+
+#define maxPatron 50
+#define maxTexto 500
+
+using namespace std;
+
+void FuBR(char[], char[], int, int);
+
+int main(void)
+{
+	char Texto[maxTexto];
+	char Patron[maxPatron];
+	int a,b;
+	cout << "INGRESE LA CADENA:";
+	cin>>(Texto);
+	a = strlen(Texto);
+	do {
+		cout << "------------------";
+		cout << "\n\nINGRESE PATRON:";
+		cin >> Patron;
+		b = strlen(Patron);
+		
+	} while (b > a); 
+	
+	
+	FuBR(Texto, Patron, a, b);   
+	
+	
+	
+	
+}
+
+
+void FuBR(char texto[], char patron[], int a, int b)
+{
+	int i, j, k, cont = 0;
+	char temp[100];
+	for (i = 0; i <= a; i++)
+	{
+		for (j = i, k = 0; j < b; j++, k++)
+			temp[k] = texto[i + k];
+		temp[k] = '\0';
+		if (strcmp(patron, temp) == 0)
+		{
+			cout << "\n POSICION  : " << i << "\n";
+			cont++;
+		}
+		b++;
+	}
+	cout << "\n\nREPETICIONES :" << cont << endl;
+	
+}
